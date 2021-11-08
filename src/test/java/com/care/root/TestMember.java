@@ -9,14 +9,17 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.care.root.member.controller.MemberController;
+import com.care.root.member.dao.MemberDAO;
 import com.care.root.member.service.MemberService;
 
 @RunWith(SpringRunner.class)	//test동작 시킬 때 필수
-@ContextConfiguration(locations= {"classpath:TestMember.xml"})
+@ContextConfiguration(locations= {"classpath:TestMember.xml",	//resources에서부터 위치를 잡는 것(main-main,test-test끼리)
+								  "file:src/main/webapp/WEB-INF/spring/root-context.xml"})
 public class TestMember {
 
 	@Autowired MemberController mc;
 	@Autowired MemberService ms;
+	@Autowired MemberDAO dao;
 	
 	@Test
 	public void testMc() {
@@ -27,5 +30,10 @@ public class TestMember {
 	@Test
 	public void testMs() {
 		assertNotNull(ms);
+	}
+	
+	@Test
+	public void testDao() {
+		assertNotNull(dao);
 	}
 }
