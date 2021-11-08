@@ -1,8 +1,11 @@
 package com.care.root.member.dao;
 
-import org.springframework.stereotype.Repository;
+import java.util.ArrayList;
 
-@Repository
-public class MemberDAO {
+import com.care.root.member.dto.MemberDTO;
 
+public interface MemberDAO {	//보통은 mapper로 많이 생성(MemberMapper), db와 "연결"만 진행
+	
+	public void insertMember(MemberDTO dto);
+	public ArrayList<MemberDTO> memberView();
 }

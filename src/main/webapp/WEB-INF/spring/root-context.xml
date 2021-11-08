@@ -29,7 +29,13 @@
   		<!-- insert/update/select/delete db기능을 *Mapper.xml에 저장 -->
 	</bean>
 	
-  <!-- 마이바티스 xml파일과 dao빈 연결  -->
+ 	<!-- 마이바티스 xml파일과 dao빈 연결  -->
   	<mybatis-spring:scan base-package="com.care.root.member.dao"/>
 	<!-- member.dao 안에 있는 클래스들과 **Mapper.xml의 연동 -->
+	
+	<!-- 트랜잭션 : rollback, commit에서 사용 -->
+	<bean name="txMgr" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+ 		 <property name="dataSource" ref="ds" />
+	</bean>	
+	
 </beans>

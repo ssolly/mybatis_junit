@@ -6,5 +6,19 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.care.root.member.dao.MemberDAO">	<!-- MemberDAO클래스와 연결 -->
-
+	
+	<!-- select를 사용하기 위해 꼭 필요 -->
+	<resultMap id="member" type="com.care.root.member.dto.MemberDTO">
+		<!-- property : dto변수, column : db의 컬럼명 -->
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+	</resultMap>
+	
+	<insert id="insertMember" >	<!-- MemberDAO의 특정 메소드와 연결하기 위한 id지정 -->
+		insert into test_mybatis values(#{id},#{name})
+	</insert>
+	
+	<select id="memberView" resultMap="member">
+		select * from test_mybatis
+	</select>
 </mapper>

@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>member/index.jsp</title>
 </head>
 <body>
-
+	<a href="insertview">데이터 추가</a> &ensp;
+	<a href="memberview">데이터 보기</a>
 </body>
 </html>

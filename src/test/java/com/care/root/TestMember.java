@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.care.root.member.controller.MemberController;
 import com.care.root.member.dao.MemberDAO;
+import com.care.root.member.dto.MemberDTO;
 import com.care.root.member.service.MemberService;
 
 @RunWith(SpringRunner.class)	//test동작 시킬 때 필수
@@ -35,5 +36,24 @@ public class TestMember {
 	@Test
 	public void testDao() {
 		assertNotNull(dao);
+	}
+	
+	@Test
+	public void testDaoIns() {		//dao에 있는 메소드 확인
+		MemberDTO dto = new MemberDTO();
+		dto.setId(123); dto.setName("홍길동");
+		dao.insertMember(dto);
+	}
+	
+	@Test
+	public void testServiceIns() {	//service에 있는 메소드 확인
+		MemberDTO dto = new MemberDTO();
+		dto.setId(321); dto.setName("동길홍");
+		ms.insertMember(dto);
+	}
+	
+	@Test
+	public void testDaoMemberView() {
+		dao.memberView();
 	}
 }

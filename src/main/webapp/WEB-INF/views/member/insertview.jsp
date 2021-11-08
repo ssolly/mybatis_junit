@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>member/Insertview.jsp</title>
 </head>
 <body>
-
+	<form action="insert" method="post">
+		<input type="text" name="id" placeholder="input id"><br>
+		<input type="text" name="name" placeholder="your name"><br>
+		<input type="submit" value="submit"><br>
+	</form>
 </body>
 </html>
